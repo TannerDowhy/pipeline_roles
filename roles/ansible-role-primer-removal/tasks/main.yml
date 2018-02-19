@@ -14,4 +14,4 @@
     - adapter_removal.py
 
 - name: Submit jobs to cluster
-  command: "for file in {{ data }}/*_R1*.fastq.gz; do sbatch {{ data }}/primer_removal/run_adapter.sh {{ primer_file }} "$file" {{ data }}; done"
+  command: "for file in {{ data }}/*_R1*.fastq.gz; do sbatch {{ data }}/primer_removal/run_adapter.sh {{ primer_file }} \"$file\" {{ data }}; done"
