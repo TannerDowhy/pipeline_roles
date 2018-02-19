@@ -1,0 +1,17 @@
+---
+# tasks file for ansible-role-primer-removal
+
+- name: Create output directories
+  file: path={{ data }}/{{ item }} state=directory mode=0777
+  with_items:
+    - primer_removal
+    - primer_removal/reports
+
+- name: Copy script to target machines
+  copy: src="{{ role_path }}/files/{{ item }}" dest="{{ data }}/primer_removal"
+  with_items:
+    - run_adapter.sh
+    - adapter_removal.py
+
+- name: Submit jobs to cluster
+  command: "for file in {{ data }}/*_R1*.fastq.gz; do sbatch {{ data }}/primer_removal/run_adapter.sh {{ primer_file }} "$file" {{ data }}; done"

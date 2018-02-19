@@ -1,0 +1,5 @@
+---
+# defaults file for ansible-role-primer-removal
+
+data: '/home/tdowhy/scratch/p2irc/canola/data'
+primer_file: '/home/tdowhy/scratch/p2irc/canola/adapter_removal/file.fasta
