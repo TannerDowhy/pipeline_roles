@@ -1,2 +1,0 @@
-[ComputeCanadaVM]
-ComputeCanadaVM-server ansible_host=cedar.computecanada.ca ansible_user=tdowhy ansible_ssh_pass=Mitchell1993
