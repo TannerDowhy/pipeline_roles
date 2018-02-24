@@ -46,8 +46,8 @@ def run_cutadapt(adapters, file, base):
     f = f[-1]
     f = f.replace('.fastq.gz', '')
     p = f.replace('_R1', '_R2')
-
-    os.system("cutadapt -m 100 -n 2 -q 20 --discard-untrimmed --pair-filter=both " + adapters[0][2] + ' ' + adapters[0][0] + "=" + adapters[0][1] + " " +
+    
+    os.system("~/.local/bin/cutadapt -m 50 -n 2 --discard-untrimmed --pair-filter=both " + adapters[0][2] + ' ' + adapters[0][0] + "=" + adapters[0][1] + " " +
               adapters[3][2] + ' ' + adapters[3][0] + "=" + adapters[3][1] + " " + adapters[2][2] + ' ' + adapters[2][0] + "=" + adapters[2][1] + " " +
               adapters[1][2] + ' ' + adapters[1][0] + "=" + adapters[1][1] + " " + base + "/" + f + ".fastq.gz " + base + "/" + p + ".fastq.gz -o " +
               base + "/primer_removal/" + f + ".cutadapted.fastq.gz -p " + base + "/primer_removal/" + p + ".cutadapted.fastq.gz" + " > " + base + "/primer_removal/reports/" + f + ".report;")

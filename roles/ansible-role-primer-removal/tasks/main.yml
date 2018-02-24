@@ -16,3 +16,6 @@
 
 - name: Submit jobs to cluster
   command: "sh {{ data }}/primer_removal/submit.sh {{ data }} {{ primer_file }}"
+
+#- name: Submit jobs to cluster
+#  script: "submit.sh {{ data }} {{ primer_file }}" chdir="{{ data }}/primer_removal"
