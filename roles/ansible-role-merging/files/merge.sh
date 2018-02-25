@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #SBATCH --account=def-linksm
-#SBATCH --time=5:00
-#SBATCH --job-name=lisa
+#SBATCH --time=10:00
+#SBATCH --job-name=classified
 #SBATCH --mem=2G
 
 inp="$1";
