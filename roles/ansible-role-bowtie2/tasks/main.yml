@@ -11,6 +11,9 @@
     - bowtie2/out
     - bowtie2/sam
 
+- name: Create Contaminant databse
+  command: "bowtie2-build {{ contaminants }} contaminants_indx"
+
 - name: Copy scripts to target machine
   copy: src="{{ role_path }}/files/{{ item }}" dest="{{ data }}/bowtie2"
   with_items:

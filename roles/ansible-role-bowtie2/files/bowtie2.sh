@@ -11,6 +11,6 @@ base=${file%*.extended*};
 path=$(dirname "${1}")
 
 module load bowtie2
-bowtie2 -x ./phiX_indx "$1" --un out/phix_"$base".fastq > sam/"$base".out
+bowtie2 -x ./contaminants_indx "$1" --un out/phix_"$base".fastq > sam/"$base".out
 
 exit 0;
