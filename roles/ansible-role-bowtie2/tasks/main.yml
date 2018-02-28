@@ -1,9 +1,6 @@
 ---
 # tasks file for ansible-role-bowtie2
 
-- name: Load the bowtie2 module
-  command: module load bowtie2
-
 - name: Create output directories
   file: path={{ data }}/{{ item }} state=directory mode=0777
   with_items:
