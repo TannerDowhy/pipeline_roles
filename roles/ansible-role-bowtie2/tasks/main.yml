@@ -12,6 +12,7 @@
   copy: src="{{ role_path }}/files/{{ item }}" dest="{{ data }}/bowtie2"
   with_items:
     - submit.sh
+    - _submit.sh
     - bowtie2.sh
 
 - name: Submit jobs to cluster
