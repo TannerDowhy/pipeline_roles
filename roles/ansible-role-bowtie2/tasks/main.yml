@@ -8,9 +8,6 @@
     - bowtie2/out
     - bowtie2/sam
 
-- name: Create Contaminant databse
-  command: "bowtie2-build {{ contaminants }} contaminants_indx"
-
 - name: Copy scripts to target machine
   copy: src="{{ role_path }}/files/{{ item }}" dest="{{ data }}/bowtie2"
   with_items:
@@ -18,4 +15,4 @@
     - bowtie2.sh
 
 - name: Submit jobs to cluster
-  command: "sh {{ data }}/bowtie2/submit.sh {{ data }}"
+  command: "sh {{ data }}/bowtie2/submit.sh {{ data }} {{ contaminants }}"
