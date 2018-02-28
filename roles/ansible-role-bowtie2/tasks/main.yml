@@ -15,5 +15,9 @@
     - _submit.sh
     - bowtie2.sh
 
+- name: Load the Bowtie module
+  shell: "module load bowtie2; bowtie2-build {{ contaminants }} {{ data }}/bowtie2/contaminants_indx"
+
+
 - name: Submit jobs to cluster
   command: "sh {{ data }}/bowtie2/submit.sh {{ data }} {{ contaminants }}"
