@@ -1,0 +1,23 @@
+---
+# tasks file for ansible-role-dada2-run
+
+- name: Create output directories
+  file: path={{ data }}/{{ item }} state=directory mode=0777
+  with_items:
+    - dada
+
+- name: Copy scripts to target machine
+  copy: src="{{ role_path }}/files/{{ item }}" dest="{{ data }}/bowtie2"
+  with_items:
+    - submit.sh
+    - queue.sh
+    - dada_sample_inference.sh
+    - dada_sample_inference.R
+    - dada_chimera_taxonomy.sh
+    - dada_chimera_taxonomy.R
+
+- name:  Make sure the queue is empty
+  command: "sh {{ data }}/dada/queue.sh {{ name }}"
+
+- name: Submit jobs to cluster
+  command: "sh {{ data }}/dada/submit.sh {{ data }} {{ name }}"

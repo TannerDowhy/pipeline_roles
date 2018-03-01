@@ -11,6 +11,7 @@
 - name: Copy scripts to target machine
   copy: src="{{ role_path }}/files/{{ item }}" dest="{{ data }}/bowtie2"
   with_items:
+    - queue.sh
     - submit.sh
     - _submit.sh
     - bowtie2.sh
@@ -18,6 +19,8 @@
 - name: Load the Bowtie module
   shell: "module load bowtie2; bowtie2-build {{ contaminants }} {{ data }}/bowtie2/contaminants_indx"
 
+- name:  Make sure the queue is empty
+  command: "sh {{ data }}/bowtie2/queue.sh {{ name }}"
 
 - name: Submit jobs to cluster
-  command: "sh {{ data }}/bowtie2/submit.sh {{ data }} {{ contaminants }}"
+  command: "sh {{ data }}/bowtie2/submit.sh {{ data }} {{ contaminants }} {{ name }}"

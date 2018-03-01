@@ -22,8 +22,12 @@
 - name: Copy scripts to target machine
   copy: src="{{ role_path }}/files/{{ item }}" dest="{{ data }}/merging"
   with_items:
+    - queue.sh
     - submit.sh
     - merge.sh
 
+- name: Wait for jobs to finish
+  command: "sh {{ data }}/merging/queue.sh {{ name }}"
+
 - name: Submit jobs to cluster 
-  command: "sh {{ data }}/merging/submit.sh {{ data }}"
+  command: "sh {{ data }}/merging/submit.sh {{ data }} {{ name }}"

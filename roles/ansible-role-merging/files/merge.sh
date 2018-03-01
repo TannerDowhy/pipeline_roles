@@ -1,6 +1,5 @@
 #!/bin/bash
 
-#SBATCH --account=def-linksm
 #SBATCH --time=01:30:00
 #SBATCH --job-name=classified
 #SBATCH --mem=2G
