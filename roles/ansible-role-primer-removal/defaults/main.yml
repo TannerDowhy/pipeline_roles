@@ -5,4 +5,4 @@
 #primer_file: '/home/tdowhy/scratch/p2irc/canola/adapter_removal/file.fasta'
 data: '/home/tdowhy/scratch/lisa/lisa/test'
 primer_file: '/home/tdowhy/scratch/lisa/lisa/adapter_removal/file.fasta'
-qname: 'def_linksm'
+qname: 'def_linksm_c'
