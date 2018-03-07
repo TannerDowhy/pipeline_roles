@@ -1,6 +1,6 @@
 ---
 # defaults file for ansible-role-primer-removal
 
-data: '/home/tdowhy/scratch/lisa/lisa/test'
-primer_file: '/home/tdowhy/scratch/lisa/lisa/adapter_removal/file.fasta'
-qname: 'def-linksm'
+#data: '/home/tdowhy/scratch/lisa/lisa/test'
+#primer_file: '/home/tdowhy/scratch/lisa/lisa/adapter_removal/file.fasta'
+#qname: 'def-linksm'
