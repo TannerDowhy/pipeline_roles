@@ -15,9 +15,10 @@
     - dada_sample_inference.R
     - dada_chimera_taxonomy.sh
     - dada_chimera_taxonomy.R
+    - silva_nr_v128_train_set.fa.gz
 
-- name:  Make sure the queue is empty
-  command: "sh {{ data }}/dada/queue.sh {{ name }}"
+#- name:  Make sure the queue is empty
+#  command: "sh {{ data }}/dada/queue.sh {{ name }}"
 
 - name: Submit jobs to cluster
   command: "sh {{ data }}/dada/submit.sh {{ data }} {{ name }}"
