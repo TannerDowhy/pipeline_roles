@@ -5,6 +5,17 @@
   file: path={{ data }}/{{ item }} state=directory mode=0777
   with_items:
     - dada
+    - software
+
+- name: Get the bbmap software
+  get_url: 
+    src: https://sourceforge.net/projects/bbmap/files/BBMap_37.85.tar.gz
+    dest: "{{ data }}/software"
+
+- name: Extract bbmap
+  unarchive:
+    src: "{{ data }}/software/BBMap_37.85.tar.gz"
+    dest: "{{ data }}/software
 
 - name: Copy scripts to target machine
   copy: src="{{ role_path }}/files/{{ item }}" dest="{{ data }}/dada"
