@@ -21,4 +21,4 @@
 #  command: "sh {{ data }}/dada/queue.sh {{ name }}"
 
 - name: Submit jobs to cluster
-  command: "sh {{ data }}/dada/submit.sh {{ data }} {{ name }}"
+  command: "sh {{ data }}/dada/submit.sh {{ data }} {{ qname }}"

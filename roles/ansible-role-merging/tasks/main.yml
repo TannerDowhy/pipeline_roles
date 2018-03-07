@@ -30,4 +30,4 @@
 #  command: "sh {{ data }}/merging/queue.sh {{ name }}"
 
 - name: Submit jobs to cluster 
-  command: "sh {{ data }}/merging/submit.sh {{ data }} {{ name }}"
+  command: "sh {{ data }}/merging/submit.sh {{ data }} {{ qname }}"

@@ -15,5 +15,5 @@
     - submit.sh
 
 - name: Submit jobs to cluster
-  command: "sh {{ data }}/primer_removal/submit.sh {{ data }} {{ primer_file }} {{ name }}"
+  command: "sh {{ data }}/primer_removal/submit.sh {{ data }} {{ primer_file }} {{ qname }}"
 

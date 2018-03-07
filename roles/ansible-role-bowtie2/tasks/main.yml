@@ -23,4 +23,4 @@
 #  command: "sh {{ data }}/bowtie2/queue.sh {{ name }}"
 
 - name: Submit jobs to cluster
-  command: "sh {{ data }}/bowtie2/submit.sh {{ data }} {{ contaminants }} {{ name }}"
+  command: "sh {{ data }}/bowtie2/submit.sh {{ data }} {{ contaminants }} {{ qname }}"
