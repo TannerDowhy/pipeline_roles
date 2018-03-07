@@ -7,7 +7,7 @@
     - dada
 
 - name: Copy scripts to target machine
-  copy: src="{{ role_path }}/files/{{ item }}" dest="{{ data }}/bowtie2"
+  copy: src="{{ role_path }}/files/{{ item }}" dest="{{ data }}/dada"
   with_items:
     - submit.sh
     - queue.sh
