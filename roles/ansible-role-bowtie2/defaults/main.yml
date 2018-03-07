@@ -3,4 +3,4 @@
 
 data: '/home/tdowhy/scratch/lisa/lisa/test'
 contaminants: '/home/tdowhy/scratch/p2irc/canola/bowtie/phix.fa'
-qname: 'def-linksm_c'
+qname: 'def-linksm'
