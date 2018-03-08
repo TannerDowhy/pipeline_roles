@@ -9,7 +9,7 @@
 
 - name: Get the bbmap software
   get_url: 
-    src: https://sourceforge.net/projects/bbmap/files/BBMap_37.85.tar.gz
+    url: https://sourceforge.net/projects/bbmap/files/BBMap_37.85.tar.gz
     dest: "{{ data }}/software"
 
 - name: Extract bbmap
