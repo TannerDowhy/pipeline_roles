@@ -16,6 +16,7 @@
   unarchive:
     src: "{{ data }}/software/BBMap_37.85.tar.gz"
     dest: "{{ data }}/software"
+    remote_src: true
 
 - name: Copy scripts to target machine
   copy: src="{{ role_path }}/files/{{ item }}" dest="{{ data }}/dada"
