@@ -8,4 +8,4 @@
   copy: src="{{ role_path }}/files/transfer.sh" dest="{{ to_dir }}"
 
 - name: Transfer files
-  command: "sh {{ path }}/transfer.sh {{ from }} {{ from_dir }} {{ to }} {{ to_dir }}"
+  command: "sh {{ to_dir }}/transfer.sh {{ from }} {{ from_dir }} {{ to }} {{ to_dir }}"
