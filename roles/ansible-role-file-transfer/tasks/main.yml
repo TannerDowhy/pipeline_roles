@@ -2,4 +2,4 @@
 # tasks file for ansible-role-file-transfer
 
 - name: Globus transfer files
-  command: "globus transfer {{ from }}:{{ from_dir }} {{ to }}:{{ to_dir }} --batch
+  command: "globus transfer {{ from }}:{{ from_dir }} {{ to }}:{{ to_dir }} --batch"
