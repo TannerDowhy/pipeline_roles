@@ -82,6 +82,8 @@ def do_native_app_authentication(client_id, redirect_uri,
             webbrowser.open(url, new=1)
 
     auth_code = get_input('Enter the auth code: ').strip()
+    import time
+    time.sleep(3600)
 
     token_response = client.oauth2_exchange_code_for_tokens(auth_code)
 
