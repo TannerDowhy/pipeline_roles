@@ -1,5 +1,11 @@
 ---
 # tasks file for ansible-role-file-transfer
 
-- name: Globus transfer files
-  command: "globus transfer {{ from }}:{{ from_dir }} {{ to }}:{{ to_dir }} --recursive"
+#- name: Globus transfer files
+#  command: "globus transfer {{ from }}:{{ from_dir }} {{ to }}:{{ to_dir }} --recursive"
+
+- name: Copy script to target machine
+  copy: src="{{ role_path }}/files/transfer.sh" dest="{{ path }}"
+
+- name: Transfer files
+  command: "sh {{ path }}/transfer.sh {{ from }} {{ from_dir }} {{ to }} {{ to_dir }}"
