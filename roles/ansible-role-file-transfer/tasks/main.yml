@@ -5,4 +5,4 @@
   copy:
     src: /Volumes/P2IRC13/Data/DNA_sequencing/fastq_files/Canola_2016/Sample_names_corrected/
     dest: /home/tdowhy/scratch/test
-    remote_src: yes
+  remote_src: yes
