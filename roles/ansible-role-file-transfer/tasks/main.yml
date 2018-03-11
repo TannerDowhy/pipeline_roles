@@ -5,7 +5,7 @@
   copy: src="{{ role_path }}/files/transfer.py" dest="/home/tdowhy/scratch/test"
 
 - name: Run transfer script
-  expect:
-    command: python /home/tdowhy/scratch/test/transfer.py
-    responses:
-      "Enter the auth code: ": "{{ code }}"
+  command: python /home/tdowhy/scratch/test/transfer.py
+  register: code
+
+- debug: msg="{{ code.stdout }}"
