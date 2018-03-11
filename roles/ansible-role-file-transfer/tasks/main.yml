@@ -8,4 +8,4 @@
   expect:
     command: python /home/tdowhy/scratch/test/transfer.py
     responses:
-      "Enter the auth code: ": {{ code }}
+      "Enter the auth code: ": "{{ code }}"
