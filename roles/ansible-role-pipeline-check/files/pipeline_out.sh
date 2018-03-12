@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Get the size of Undeterminded files
-undeterminded="$(ls -1 "$1"/Undetermined* | wc -l)";
-if ("$undetermined" != 0):
-  echo "WARNING: There exists "$undetermined" undetermined files. The size(s) are: stat --printf="%s " "$1"/Undetermined*"
+# undeterminded="$(ls -1 "$1"/Undetermined* | wc -l)";
+# if ("$undetermined" != 0):
+#   echo "WARNING: There exists "$undetermined" undetermined files. The size(s) are: stat --printf="%s " "$1"/Undetermined*"
 
 # Counts the number of files at each stage in the pipeline
 files_in="$(ls -1 "$1"/*fastq.gz | wc -l)";
