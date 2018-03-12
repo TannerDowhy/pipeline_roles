@@ -42,7 +42,7 @@ do
   declare -i temp
   temp=$(zcat $file | wc -l)
   temp=$temp/4
-  total_in=$total_in+$temp
+  total_in=$(($total_in+$temp))
 done
 echo "${total_in} total initial molecules." >> "$1"/pipeline_check/pipeline.out
 
@@ -53,7 +53,7 @@ do
   declare -i temp
   temp=$(zcat $file | wc -l)
   temp=$temp/4
-  r1_in=$r1_in+$temp
+  r1_in=$(($r1_in+$temp))
 done
 echo "${r1_in} initial forward molecules." >> "$1"/pipeline_check/pipeline.out
 
@@ -64,7 +64,7 @@ do
   declare -i temp
   temp=$(zcat $file | wc -l)
   temp=$temp/4
-  r2_in=$r2_in+$temp
+  r2_in=$(($r2_in+$temp))
 done
 echo "${r2_in} initial reverse molecules." >> "$1"/pipeline_check/pipeline.out
 
@@ -75,7 +75,7 @@ do
   declare -i temp
   temp=$(zcat $file | wc -l)
   temp=$temp/4
-  post_cut=$post_cut+$temp
+  post_cut=$(($post_cut+$temp))
 done
 echo "${post_cut} molecules after primer removal." >> "$1"/pipeline_check/pipeline.out
 
@@ -86,7 +86,7 @@ do
   declare -i temp
   temp=$(zcat $file | wc -l)
   temp=$temp/4
-  post_cut_r1=$post_cut_r1+$temp
+  post_cut_r1=$(($post_cut_r1+$temp))
 done
 echo "${post_cut_r1} reads post primer removal." >> "$1"/pipeline_check/pipeline.out
 
@@ -97,7 +97,7 @@ do
   declare -i temp
   temp=$(cat $file | wc -l)
   temp=$temp/4
-  post_merge=$post_merge+$temp
+  post_merge=$(($post_merge+$temp))
 done
 echo "${post_merge} reads post merging." >> "$1"/pipeline_check/pipeline.out
 
@@ -108,7 +108,7 @@ do
   declare -i temp
   temp=$(cat $file | wc -l)
   temp=$temp/4
-  post_contam=$post_contam+$temp
+  post_contam=$(($post_contam+$temp))
 done
 echo "${post_merge} reads post contaminant removal." >> "$1"/pipeline_check/pipeline.out
 
