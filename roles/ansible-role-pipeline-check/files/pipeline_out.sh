@@ -6,7 +6,6 @@
 #   echo "WARNING: There exists "$undetermined" undetermined files. The size(s) are: stat --printf="%s " "$1"/Undetermined*"
 
 # Counts the number of files at each stage in the pipeline
-printf "Hi";
 files_in="$(ls -1 "$1"/*fastq.gz | wc -l)";
 r1_files_in="$(ls -1 "$1"/*_R1*fastq.gz | wc -l)";
 r2_files_in="$(ls -1 "$1"/*_R2*fastq.gz | wc -l)";
@@ -21,17 +20,17 @@ files_contam="$(ls -1 "$1"/bowtie2/out/*.fastq | wc -l)";
 # Make sure right number of files at each level
 if ("$files_cut" != "$files_in")
 then
-  echo "Error at primer removal step. Wrong number of output files."
+  echo "Error at primer removal step. Wrong number of output files." >> "$1"/pipeline_check/pipeline.out
   exit 1;
 fi
 if ("$files_merge" != "$files_in" / 2)
 then
-  echo "Error at merging step. Wrong number of output files."
+  echo "Error at merging step. Wrong number of output files." >> "$1"/pipeline_check/pipeline.out
   exit 1;
 fi
 if ("$files_contam" != "$files_merge" / 2)
 then
-  echo "Error at contaminant detection step. Wrong number of output files."
+  echo "Error at contaminant detection step. Wrong number of output files." >> "$1"/pipeline_check/pipeline.out
   exit 1;
 fi
 
@@ -44,8 +43,8 @@ do
   temp=$(zcat $file | wc -l)
   temp=$temp/4
   total_in=$total_in+$temp
-  echo "${total_in} total initial molecules."
 done
+echo "${total_in} total initial molecules." >> "$1"/pipeline_check/pipeline.out
 
 declare -i r1_in;
 r1_in=0;
@@ -55,8 +54,8 @@ do
   temp=$(zcat $file | wc -l)
   temp=$temp/4
   r1_in=$r1_in+$temp
-  echo "${r1_in} initial forward molecules."
 done
+echo "${r1_in} initial forward molecules." >> "$1"/pipeline_check/pipeline.out
 
 declare -1 r2_in;
 r2_in=0;
@@ -66,8 +65,8 @@ do
   temp=$(zcat $file | wc -l)
   temp=$temp/4
   r2_in=$r2_in+$temp
-  echo "${r2_in} initial reverse molecules."
 done
+echo "${r2_in} initial reverse molecules." >> "$1"/pipeline_check/pipeline.out
 
 declare -i post_cut;
 post_cut=0;
@@ -77,8 +76,8 @@ do
   temp=$(zcat $file | wc -l)
   temp=$temp/4
   post_cut=$post_cut+$temp
-  echo "${post_cut} molecules after primer removal."
 done
+echo "${post_cut} molecules after primer removal." >> "$1"/pipeline_check/pipeline.out
 
 declare -i post_cut_r1;
 post_cut_r1=0;
@@ -88,8 +87,8 @@ do
   temp=$(zcat $file | wc -l)
   temp=$temp/4
   post_cut_r1=$post_cut_r1+$temp
-  echo "${post_cut_r1} reads post primer removal."
 done
+echo "${post_cut_r1} reads post primer removal." >> "$1"/pipeline_check/pipeline.out
 
 declare -i post_merge;
 post_merge=0;
@@ -99,8 +98,8 @@ do
   temp=$(cat $file | wc -l)
   temp=$temp/4
   post_merge=$post_merge+$temp
-  echo "${post_merge} reads post merging."
 done
+echo "${post_merge} reads post merging." >> "$1"/pipeline_check/pipeline.out
 
 declare -i pose_contam;
 pose_contam=0;
@@ -110,8 +109,8 @@ do
   temp=$(cat $file | wc -l)
   temp=$temp/4
   post_contam=$post_contam+$temp
-  echo "${post_merge} reads post contaminant removal."
 done
+echo "${post_merge} reads post contaminant removal." >> "$1"/pipeline_check/pipeline.out
 
 
 exit 0;
