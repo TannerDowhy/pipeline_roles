@@ -6,6 +6,7 @@
 #   echo "WARNING: There exists "$undetermined" undetermined files. The size(s) are: stat --printf="%s " "$1"/Undetermined*"
 
 # Counts the number of files at each stage in the pipeline
+printf "Hi";
 files_in="$(ls -1 "$1"/*fastq.gz | wc -l)";
 r1_files_in="$(ls -1 "$1"/*_R1*fastq.gz | wc -l)";
 r2_files_in="$(ls -1 "$1"/*_R2*fastq.gz | wc -l)";
