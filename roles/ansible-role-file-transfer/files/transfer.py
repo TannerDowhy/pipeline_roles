@@ -76,14 +76,12 @@ def do_native_app_authentication(client_id, redirect_uri,
     if not is_remote_session():
         # There was a bug in webbrowser recently that this fixes:
         # https://bugs.python.org/issue30392
-        if sys.platform == 'darwin':
-            webbrowser.get('safari').open(url, new=1)
-        else:
-            webbrowser.open(url, new=1)
+        # if sys.platform == 'darwin':
+        #     webbrowser.get('safari').open(url, new=1)
+        # else:
+        webbrowser.open(url, new=1)
 
     auth_code = get_input('Enter the auth code: ').strip()
-    import time
-    time.sleep(3600)
 
     token_response = client.oauth2_exchange_code_for_tokens(auth_code)
 
