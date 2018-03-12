@@ -92,7 +92,7 @@ echo "${post_cut_r1} reads post primer removal." >> "$1"/pipeline_check/pipeline
 
 declare -i post_merge;
 post_merge=0;
-for file in "$1"/merging/otuput/*extendedFrags.fastq;
+for file in "$1"/merging/output/*extendedFrags.fastq;
 do
   declare -i temp
   temp=$(cat $file | wc -l)
