@@ -16,4 +16,4 @@
 #   command: "sh {{ data }}/pipeline_check/queue.sh {{ qname }} {{ job_name }}"
 
 - name: Run the pipeline check
-  command: "sh {{ data }}/pipeline_check/pipeline_out.sh {{ data }}"
+  command: "sh {{ data }}/pipeline_check/pipeline_out.sh {{ data }} > {{ data }}/pipeline_check/pipeline.out"
