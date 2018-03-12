@@ -101,9 +101,9 @@ do
 done
 echo "${post_merge} reads post merging." >> "$1"/pipeline_check/pipeline.out
 
-declare -i pose_contam;
-pose_contam=0;
-for file in "$1"/bowtie2/ot/.fastq;
+declare -i post_contam;
+post_contam=0;
+for file in "$1"/bowtie2/out/*.fastq;
 do
   declare -i temp
   temp=$(cat $file | wc -l)
