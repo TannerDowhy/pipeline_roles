@@ -18,15 +18,21 @@ files_merge="$(ls -1 "$1"/merging/output/*extendedFrags.fastq | wc -l)";
 files_contam="$(ls -1 "$1"/bowtie2/out/*.fastq | wc -l)";
 
 # Make sure right number of files at each level
-if ("$files_cut" != "$files_in"):
+if ("$files_cut" != "$files_in")
+then
   echo "Error at primer removal step. Wrong number of output files."
   exit 1;
-if ("$files_merge" != "$files_in" / 2):
+fi
+if ("$files_merge" != "$files_in" / 2)
+then
   echo "Error at merging step. Wrong number of output files."
   exit 1;
-if ("$files_contam" != "$files_merge" / 2):
+fi
+if ("$files_contam" != "$files_merge" / 2)
+then
   echo "Error at contaminant detection step. Wrong number of output files."
   exit 1;
+fi
 
 # Count the molecules at each level
 declare -1 total_in;
