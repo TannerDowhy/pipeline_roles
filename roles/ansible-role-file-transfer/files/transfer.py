@@ -39,11 +39,13 @@ TRANSFER_LABEL = 'Folder Sync Example'
 #     - "Native App" should be checked
 # For more information:
 # https://docs.globus.org/api/auth/developer-guide/#register-app
-CLIENT_ID = '77392e80-860e-487e-8fc0-3f021bb1bb1a'
+CLIENT_ID = '19ca51f3-41fd-4cd6-90c2-61118d0bafa2'
+CLIENT_SECRET = '2CpOhEQfcAK3GQmYtjtCUgZt+mHevJhQ6Nr08fmPNn4='
 DATA_FILE = 'transfer-data.json'
-REDIRECT_URI = 'https://auth.globus.org/v2/web/auth-code'
-SCOPES = ('openid email profile '
-          'urn:globus:auth:scope:transfer.api.globus.org:all')
+REDIRECT_URI = 'https://auth.globus.org/v2/oauth2/authorize'
+# SCOPES = ('openid email profile '
+#           'urn:globus:auth:scope:frdr-dev6.computecanada.ca:all urn:globus:auth:scope:frdr-dev5.computecanada.ca:all')
+# REDIRECT_URI = ('https://auth.globus.org/v2/oauth2/authorize?client_id=19ca51f3-41fd-4cd6-90c2-61118d0bafa2')
 
 # ONLY run new tasks if there was a previous task and it exited with one of the
 # following statuses. This is ignored if there was no previous task.
