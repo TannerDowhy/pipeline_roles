@@ -6,7 +6,7 @@ args <- commandArgs(TRUE)
 # Path setup
 path <- args[1]
 filt_path <- file.path(path, "filtered")
-merged_files <- list.files(path, pattern="extendedFrags.fastq")
+merged_files <- list.files(path, pattern=".fastq")
 filterAndTrim(file.path(path, merged_files), file.path(filt_path, merged_files), rm.phix=FALSE, truncLen=as.integer(args[2]),  multithread=TRUE)
 
 filts <- list.files(filt_path, pattern=".fastq", full.names=TRUE)
