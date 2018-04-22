@@ -6,6 +6,7 @@
   with_items:
     - primer_removal
     - primer_removal/reports
+    - primer_removal/output
 
 - name: Copy script to target machines
   copy: src="{{ role_path }}/files/{{ item }}" dest="{{ data }}/primer_removal"
