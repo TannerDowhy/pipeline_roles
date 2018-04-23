@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH --time=30:00
+#SBATCH --time=1:00:00
 #SBATCH --job-name=classified
 #SBATCH --mem=2G
 
