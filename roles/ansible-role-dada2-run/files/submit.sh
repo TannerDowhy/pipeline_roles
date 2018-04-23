@@ -1,6 +1,15 @@
 #!/bin/bash
 
-sh queue.sh "$2"
+while true
+do
+    if ["$(squeue -u "$2" | wc -l)" == "1"]
+    then
+        break;
+    fi
+    sleep 10;
+done
+
+exit 0;
 
 cat "$1"/bowtie2/out/*.fastq > "$1"/dada/combined.fastq;
 sh "$1"/software/bbmap/readlength.sh in="$1"/dada/combined.fastq out="$1"/dada/hist.txt bin=1;
