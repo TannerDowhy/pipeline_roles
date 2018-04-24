@@ -2,7 +2,8 @@
 
 while true
 do
-    if ["$(squeue -u "$1" | wc -l)" == "1"]
+    command=`squeue -u $1 | wc -l`
+    if [ $command = "1" ];
     then
         break;
     fi
