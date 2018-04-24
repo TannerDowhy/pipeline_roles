@@ -5,6 +5,7 @@
 #SBATCH --mem=64G
 #SBATCH --nodes=4
 #SBATCH --tasks-per-node=32
+#SBATCH --output=chimera_taxonomy.out
 
 module load r;
 Rscript dada_chimera_taxonomy.R "$1" "$2" "$3" "$4" "$5";

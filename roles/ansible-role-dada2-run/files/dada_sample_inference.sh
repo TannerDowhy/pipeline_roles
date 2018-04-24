@@ -5,6 +5,7 @@
 #SBATCH --mem=64G
 #SBATCH --nodes=8
 #SBATCH --tasks-per-node=32
+#SBATCH --output=sample_inference.out
 
 module load r;
 Rscript dada_sample_inference.R "$1" "$2" "$3" "$4" "$5";
