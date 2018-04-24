@@ -1,9 +1,6 @@
 ---
 # tasks file for ansible-role-primer-removal
 
-- name: Create tmp files
-  command:
-
 - name: Create output directories
   file: path={{ data }}/{{ item }} state=directory mode=0777
   with_items:
