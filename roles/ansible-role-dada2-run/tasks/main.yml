@@ -30,12 +30,13 @@
     - dada_chimera_taxonomy.sh
     - dada_chimera_taxonomy.R
     - silva_nr_v128_train_set.fa.gz
+    - combine.sh
 
 - name:  Make sure the queue is empty
   command: "sh {{ data }}/dada/queue.sh {{ user }}"
 
 - name: Generate Combined file
-  command: "sh combine.sh {{ data }}"
+  command: "sh {{ data }}/dada/combine.sh {{ data }}"
 
 - name: Generate histogram
   command: "sh {{ data }}/software/bbmap/readlength.sh in={{ data }}/dada/combined.fastq out={{ data }}/dada/hist.txt bin=1"
