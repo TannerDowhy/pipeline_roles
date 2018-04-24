@@ -18,7 +18,7 @@
     - touch.sh
 
 - name: Generate contaminants file
-  command: "echo {{ contams }} > {{ data}}/{{ contaminants }}"
+  copy: content="{{ contams }}" dest="{{ data }}/{{ contaminants }}"
 
 - name: Generate output files for cluster
   command: "sh {{ data }}/bowtie2/touch.sh {{ data }}"
