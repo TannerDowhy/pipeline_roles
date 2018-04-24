@@ -19,7 +19,6 @@
 
 - name: Generate contaminants file
   copy: content="{{ contams }}" dest="{{ data }}/{{ contaminants }}/contams.fasta"
-  remove_src: yes
 
 - name: Generate output files for cluster
   command: "sh {{ data }}/bowtie2/touch.sh {{ data }}"
