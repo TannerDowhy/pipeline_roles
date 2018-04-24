@@ -17,6 +17,9 @@
     - bowtie2.sh
     - touch.sh
 
+- name: Generate contaminants file
+  command: "echo {{ contams }} > {{ data}}/{{ contaminants }}"
+
 - name: Generate output files for cluster
   command: "sh {{ data }}/bowtie2/touch.sh {{ data }}"
 

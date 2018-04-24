@@ -16,8 +16,11 @@
     - submit.sh
     - touch.sh
 
+- name: Create primer file
+  command: "echo {{ primers }} > {{ data }}/{{ primer_file }}"
+
 - name: Generate output files for cluster
   command: "sh {{ data }}/primer_removal/touch.sh {{ data }}"
 
 - name: Submit jobs to cluster
-  command: "sh {{ data }}/primer_removal/submit.sh {{ data }} {{ primer_file }} {{ qname }}"
+  command: "sh {{ data }}/primer_removal/submit.sh {{ data }} {{ data }}/{{ primer_file }} {{ qname }}"
