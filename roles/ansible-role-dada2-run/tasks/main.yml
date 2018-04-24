@@ -25,6 +25,7 @@
     - submit.sh
     - _submit.sh
     - queue.sh
+    - read_length.py
     - dada_sample_inference.sh
     - dada_sample_inference.R
     - dada_chimera_taxonomy.sh
