@@ -6,6 +6,7 @@ do
   inp="$file";
   file_name=${inp##*/};
   base=${file_name%_R*.*};
-  touch "$1"/bowtie2/output/"$base".fastq
+  touch "$1"/bowtie2/output/"$base".fastq;
+done
 
 exit 0;
