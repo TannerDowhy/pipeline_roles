@@ -2,5 +2,5 @@
 # defaults file for ansible-role-bowtie2
 
 #data: '/home/tdowhy/scratch/lisa/lisa/test'
-contaminants: 'bowtie/phix.fa'
+contaminants: 'bowtie/'
 #qname: 'def-linksm'

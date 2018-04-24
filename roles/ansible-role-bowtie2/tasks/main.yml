@@ -18,13 +18,14 @@
     - touch.sh
 
 - name: Generate contaminants file
-  copy: content="{{ contams }}" dest="{{ data }}/{{ contaminants }}"
+  copy: content="{{ contams }}" dest="{{ data }}/{{ contaminants }}/contams.fasta"
+  remove_src: yes
 
 - name: Generate output files for cluster
   command: "sh {{ data }}/bowtie2/touch.sh {{ data }}"
 
 - name: Load the Bowtie module
-  shell: "module load bowtie2; bowtie2-build {{ data }}/{{ contaminants }} {{ data }}/bowtie2/contaminants_indx"
+  shell: "module load bowtie2; bowtie2-build {{ data }}/{{ contaminants }}/contams.fasta {{ data }}/bowtie2/contaminants_indx"
 
 #- name:  Make sure the queue is empty
 #  command: "sh {{ data }}/bowtie2/queue.sh {{ name }}"
