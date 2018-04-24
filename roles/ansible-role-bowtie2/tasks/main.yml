@@ -5,7 +5,7 @@
   file: path={{ data }}/{{ item }} state=directory mode=0777
   with_items:
     - bowtie2
-    - bowtie2/out
+    - bowtie2/output
     - bowtie2/sam
 
 - name: Copy scripts to target machine
@@ -15,6 +15,10 @@
     - submit.sh
     - _submit.sh
     - bowtie2.sh
+    - touch.sh
+
+- name: Generate output files for cluster
+  command: "sh {{ data }}/bowtie2/touch.sh {{ data }}"
 
 - name: Load the Bowtie module
   shell: "module load bowtie2; bowtie2-build {{ contaminants }} {{ data }}/bowtie2/contaminants_indx"

@@ -2,7 +2,7 @@
 # tasks file for ansible-role-merging
 
 - name: Clone git repository for FLASH
-  git: 
+  git:
     repo: https://github.com/dstreett/FLASH2.git
     dest: ~/bin/FLASH
 
@@ -25,9 +25,13 @@
     - queue.sh
     - submit.sh
     - merge.sh
+    - touch.sh
+
+- name: Generate output files for cluster
+  command: "sh {{ data }}/merging/touch.sh {{ data }}"
 
 #- name: Wait for jobs to finish
 #  command: "sh {{ data }}/merging/queue.sh {{ name }}"
 
-- name: Submit jobs to cluster 
+- name: Submit jobs to cluster
   command: "sh {{ data }}/merging/submit.sh {{ data }} {{ qname }}"

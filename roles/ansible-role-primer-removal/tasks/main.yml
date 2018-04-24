@@ -1,6 +1,9 @@
 ---
 # tasks file for ansible-role-primer-removal
 
+- name: Create tmp files
+  command:
+
 - name: Create output directories
   file: path={{ data }}/{{ item }} state=directory mode=0777
   with_items:
@@ -14,6 +17,10 @@
     - run_adapter.sh
     - adapter_removal.py
     - submit.sh
+    - touch.sh
+
+- name: Generate output files for cluster
+  command: "sh {{ data }}/primer_removal/touch.sh {{ data }}"
 
 - name: Submit jobs to cluster
   command: "sh {{ data }}/primer_removal/submit.sh {{ data }} {{ primer_file }} {{ qname }}"
