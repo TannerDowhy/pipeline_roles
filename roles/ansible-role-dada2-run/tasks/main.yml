@@ -16,6 +16,7 @@
   unarchive:
     src: "{{ data }}/software/BBMap_37.95.tar.gz"
     dest: "{{ data }}/software"
+    checksum: sha256:87c8c1bcafdc79607b53e5c84a3567f7a2b15c6c
     remote_src: true
 
 - name: Copy scripts to target machine
