@@ -32,7 +32,7 @@
     - silva_nr_v128_train_set.fa.gz
 
 - name:  Make sure the queue is empty
-  command: "sh {{ data }}/dada/queue.sh {{ user }}"
+  command: "sh {{ data }}/dada/queue.sh tdowhy"
 
 - name: Generate Combined file
   command: "cat {{ data }}/bowtie2/output/*.fastq > {{ data }}/dada/combined.fastq"
