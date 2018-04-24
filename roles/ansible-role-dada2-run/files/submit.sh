@@ -17,9 +17,7 @@
 #
 # sh "$1"/software/bbmap/readlength.sh in="$1"/dada/combined.fastq out="$1"/dada/hist.txt bin=1;
 
-echo "Hist..."
-
-len="$(python "$1"/dada/read_length.py -f "$1"/dada/hist.txt)";
+len=`python $1/dada/read_length.py -f $1/dada/hist.txt`;
 
 sh _submit.sh "$1" "$2" "$len";
 
