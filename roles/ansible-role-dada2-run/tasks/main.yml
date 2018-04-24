@@ -19,6 +19,17 @@
     dest: "{{ data }}/software"
     remote_src: true
 
+- name: Get the Greengenes db
+  get_url:
+    url: ftp://greengenes.microbio.me/greengenes_release/gg_13_5/gg_13_8_otus.tar.gz
+    dest: "{{ data }}/software"
+
+- name: Extract Greengenes
+  unarchive:
+    src: "{{ data }}/software/gg_13_8_otus.tar.gz"
+    dest: "{{ data }}/software"
+    remote_src: true
+
 - name: Copy scripts to target machine
   copy: src="{{ role_path }}/files/{{ item }}" dest="{{ data }}/dada"
   with_items:

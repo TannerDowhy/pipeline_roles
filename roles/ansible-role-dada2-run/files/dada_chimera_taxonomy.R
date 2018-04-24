@@ -7,8 +7,11 @@ st <- readRDS(args[1])
 seqtab <- removeBimeraDenovo(st, method="consensus", multithread=TRUE)
 # Assign taxonomy
 tax <- assignTaxonomy(seqtab, "silva_nr_v128_train_set.fa.gz", multithread=TRUE)
+tax2 <- assignTaxonomy(seqtab, "../software/gg_13_8_otus/rep_set/99_otus.fasta", multithread=TRUE)
 # Write to disk
 write.csv(seqtab, args[2])
 write.csv(tax, args[3])
 saveRDS(seqtab, args[4])
 saveRDS(tax, args[5])
+write.csv(tax2, args[6])
+saveRDS(tax2, args[7])
