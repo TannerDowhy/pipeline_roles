@@ -31,8 +31,14 @@
     - dada_chimera_taxonomy.R
     - silva_nr_v128_train_set.fa.gz
 
-#- name:  Make sure the queue is empty
-#  command: "sh {{ data }}/dada/queue.sh {{ name }}"
+- name:  Make sure the queue is empty
+  command: "sh {{ data }}/dada/queue.sh {{ qname }}"
+
+- name: Generate Combined file
+  command: "cat {{ data }}/bowtie2/output/*.fastq > {{ data }}/dada/combined.fastq"
+
+- name: Generate histogram
+  command: "sh {{ data }}/software/bbmap/readlength.sh in={{ data }}/dada/combined.fastq out={{ data }}/dada/hist.txt bin=1"
 
 - name: Submit jobs to cluster
   command: "sh {{ data }}/dada/submit.sh {{ data }} {{ qname }}"
