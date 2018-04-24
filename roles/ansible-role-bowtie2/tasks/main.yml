@@ -24,7 +24,7 @@
   command: "sh {{ data }}/bowtie2/touch.sh {{ data }}"
 
 - name: Load the Bowtie module
-  shell: "module load bowtie2; bowtie2-build {{ contaminants }} {{ data }}/bowtie2/contaminants_indx"
+  shell: "module load bowtie2; bowtie2-build {{ data }}/{{ contaminants }} {{ data }}/bowtie2/contaminants_indx"
 
 #- name:  Make sure the queue is empty
 #  command: "sh {{ data }}/bowtie2/queue.sh {{ name }}"
