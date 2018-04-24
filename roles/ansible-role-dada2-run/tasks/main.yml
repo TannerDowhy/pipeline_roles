@@ -35,6 +35,7 @@
   command: "sh {{ data }}/dada/queue.sh {{ user }}"
 
 - name: Generate Combined file
+  command: "touch {{ data }}"/dada/combined.fastq
   command: "cat {{ data }}/bowtie2/output/*.fastq > {{ data }}/dada/combined.fastq"
 
 - name: Generate histogram
