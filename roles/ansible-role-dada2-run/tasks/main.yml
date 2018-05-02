@@ -45,11 +45,7 @@
     - combine.sh
 
 - name: Make sure the queue is empty
-<<<<<<< HEAD
   command: "sh {{ data }}/dada/queue.sh {{ uname }}"
-=======
-  command: "sh {{ data }}/dada/queue.sh {{ user }}"
->>>>>>> 90643855b0993fe9c20211a2a15db4a5be360b18
 
 - name: Generate Combined file
   command: "sh {{ data }}/dada/combine.sh {{ data }}"
