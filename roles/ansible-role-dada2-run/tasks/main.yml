@@ -44,7 +44,7 @@
     - silva_nr_v128_train_set.fa.gz
     - combine.sh
 
-- name:  Make sure the queue is empty
+- name: Make sure the queue is empty
   command: "sh {{ data }}/dada/queue.sh {{ user }}"
 
 - name: Generate Combined file
