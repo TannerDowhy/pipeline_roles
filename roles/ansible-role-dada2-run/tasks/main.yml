@@ -10,7 +10,7 @@
 - name: Get the bbmap software
   git:
     repo: https://github.com/BioInfoTools/BBMap.git
-    dest: "{{ data }}/software"
+    dest: "{{ data }}/software/"
 
 # - name: Get the bbmap software
 #   get_url:
