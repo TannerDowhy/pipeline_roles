@@ -7,25 +7,24 @@
     - dada
     - software
 
-- name: Get the bbmap software
-  git:
-    repo: https://github.com/BioInfoTools/BBMap.git
-    dest: "{{ data }}/software/BBMap"
-
-- name: Build bbmap suite
-  command: "make -C {{ data }}/software/BBMap/jni -f makefile.linux"
-
 # - name: Get the bbmap software
-#   get_url:
-#     url: https://sourceforge.net/projects/bbmap/files/BBMap_38.00.tar.gz
-#     checksum: md5:e5790f279c87c8cf8d9de71445a68364
-#     dest: "{{ data }}/software"
+#   git:
+#     repo: https://github.com/BioInfoTools/BBMap.git
+#     dest: "{{ data }}/software/BBMap"
+#
+# - name: Build bbmap suite
+#   command: "make -C {{ data }}/software/BBMap/jni -f makefile.linux"
 
-# - name: Extract bbmap
-#   unarchive:
-#     src: "{{ data }}/software/BBMap_37.95.tar.gz"
-#     dest: "{{ data }}/software"
-#     remote_src: true
+- name: Get the bbmap software
+  get_url:
+    url: http://sourceforge.net/projects/bbmap/files/latest/download
+    dest: "{{ data }}/software"
+
+- name: Extract bbmap
+  unarchive:
+    src: "{{ data }}/software/download"
+    dest: "{{ data }}/software"
+    remote_src: true
 
 - name: Get the Greengenes db
   get_url:
@@ -59,7 +58,7 @@
   command: "sh {{ data }}/dada/combine.sh {{ data }}"
 
 - name: Generate histogram
-  command: "sh {{ data }}/software/BBMap/sh/readlength.sh in={{ data }}/dada/combined.fastq out={{ data }}/dada/hist.txt bin=1"
+  command: "sh {{ data }}/software/bbmap/readlength.sh in={{ data }}/dada/combined.fastq out={{ data }}/dada/hist.txt bin=1"
 
 - name: Submit jobs to cluster
   command: "sh {{ data }}/dada/submit.sh {{ data }} {{ qname }}"
