@@ -21,8 +21,8 @@
     dest: "{{ data }}/software"
   retries: 3
   delay: 3
-  register: result
-  until: result.rc == 0
+  register: command_result
+  until: command_result.rc == 0
 
 - name: Extract bbmap
   unarchive:
