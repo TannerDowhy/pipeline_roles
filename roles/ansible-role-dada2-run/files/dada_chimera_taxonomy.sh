@@ -7,6 +7,6 @@
 #SBATCH --tasks-per-node=32
 
 module load r;
-Rscript dada_chimera_taxonomy.R "$1" "$2" "$3" "$4" "$5" "$6" "$7";
+`Rscript $8/dada/dada_chimera_taxonomy.R $1 $2 $3 $4 $5 $6 $7`;
 
 exit 0;
