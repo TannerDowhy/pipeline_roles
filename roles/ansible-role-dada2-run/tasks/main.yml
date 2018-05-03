@@ -23,7 +23,9 @@
 #   until: command_result.rc == 0
 
 - name: Get the bbmap software
-  command: "wget http://sourceforge.net/projects/bbmap/files/latest/download" chdir="{{ data }}/software"
+  command: "wget http://sourceforge.net/projects/bbmap/files/latest/download"
+  args:
+    chdir: "{{ data }}/software"
 
 - name: Extract bbmap
   unarchive:
