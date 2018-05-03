@@ -19,6 +19,10 @@
   get_url:
     url: http://sourceforge.net/projects/bbmap/files/latest/download
     dest: "{{ data }}/software"
+    retries: 3
+    delay: 3
+    register: result
+    until: result.rc == 0
 
 - name: Extract bbmap
   unarchive:
