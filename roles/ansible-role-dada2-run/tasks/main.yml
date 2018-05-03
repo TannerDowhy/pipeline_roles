@@ -15,12 +15,15 @@
 # - name: Build bbmap suite
 #   command: "make -C {{ data }}/software/BBMap/jni -f makefile.linux"
 
+# - name: Get the bbmap software
+#   command: "wget http://sourceforge.net/projects/bbmap/files/latest/download" chdir="{{ data }}/software"
+#   retries: 3
+#   delay: 3
+#   register: command_result
+#   until: command_result.rc == 0
+
 - name: Get the bbmap software
   command: "wget http://sourceforge.net/projects/bbmap/files/latest/download" chdir="{{ data }}/software"
-  retries: 3
-  delay: 3
-  register: command_result
-  until: command_result.rc == 0
 
 - name: Extract bbmap
   unarchive:
