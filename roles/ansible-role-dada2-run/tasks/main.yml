@@ -16,9 +16,7 @@
 #   command: "make -C {{ data }}/software/BBMap/jni -f makefile.linux"
 
 - name: Get the bbmap software
-  get_url:
-    url: http://sourceforge.net/projects/bbmap/files/latest/download
-    dest: "{{ data }}/software"
+  command: "wget http://sourceforge.net/projects/bbmap/files/latest/download" chdir="{{ data }}/software"
   retries: 3
   delay: 3
   register: command_result
