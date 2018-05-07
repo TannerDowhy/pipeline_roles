@@ -6,7 +6,7 @@
 #SBATCH --nodes=4
 #SBATCH --tasks-per-node=32
 
-module load r;
-`Rscript $8/dada/dada_chimera_taxonomy.R $1 $2 $3 $4 $5 $6 $7`;
+# module load r;
+`/cvmfs/soft.computecanada.ca/easybuild/software/2017/avx2/Compiler/intel2016.4/r/3.4.3/bin/Rscript $8/dada/dada_chimera_taxonomy.R $1 $2 $3 $4 $5 $6 $7`;
 
 exit 0;
