@@ -73,3 +73,5 @@
 
 - name: Submit jobs to cluster
   command: "sh {{ data }}/dada/submit.sh {{ data }} {{ qname }}"
+  args:
+    chdir: "{{ data }}/dada"
