@@ -10,12 +10,12 @@ files_in="$(ls -1 "$1"/*fastq.gz | wc -l)";
 r1_files_in="$(ls -1 "$1"/*_R1*fastq.gz | wc -l)";
 r2_files_in="$(ls -1 "$1"/*_R2*fastq.gz | wc -l)";
 
-files_cut="$(ls -1 "$1"/primer_removal/*fastq.gz | wc -l)";
-r1_files_cut="$(ls -1 "$1"/primer_removal/*_R1*fastq.gz | wc -l)";
-r2_files_cut="$(ls -1 "$1"/primer_removal/*_R2*fastq.gz | wc -l)";
+files_cut="$(ls -1 "$1"/primer_removal/output/*fastq.gz | wc -l)";
+r1_files_cut="$(ls -1 "$1"/primer_removal/output/*_R1*fastq.gz | wc -l)";
+r2_files_cut="$(ls -1 "$1"/primer_removal/output/*_R2*fastq.gz | wc -l)";
 
 files_merge="$(ls -1 "$1"/merging/output/*extendedFrags.fastq | wc -l)";
-files_contam="$(ls -1 "$1"/bowtie2/out/*.fastq | wc -l)";
+files_contam="$(ls -1 "$1"/bowtie2/output/*.fastq | wc -l)";
 
 # Make sure right number of files at each level
 if ("$files_cut" != "$files_in")
@@ -70,7 +70,7 @@ echo "${r2_in} initial reverse molecules." >> "$1"/pipeline_check/pipeline.out
 
 declare -i post_cut;
 post_cut=0;
-for file in "$1"/primer_removal/*.fastq.gz;
+for file in "$1"/primer_removal/output/*.fastq.gz;
 do
   declare -i temp
   temp=$(zcat $file | wc -l)
@@ -81,7 +81,7 @@ echo "${post_cut} molecules after primer removal." >> "$1"/pipeline_check/pipeli
 
 declare -i post_cut_r1;
 post_cut_r1=0;
-for file in "$1"/primer_removal/*_R1*.fastq.gz;
+for file in "$1"/primer_removal/output/*_R1*.fastq.gz;
 do
   declare -i temp
   temp=$(zcat $file | wc -l)
@@ -103,7 +103,7 @@ echo "${post_merge} reads post merging." >> "$1"/pipeline_check/pipeline.out
 
 declare -i post_contam;
 post_contam=0;
-for file in "$1"/bowtie2/out/*.fastq;
+for file in "$1"/bowtie2/output/*.fastq;
 do
   declare -i temp
   temp=$(cat $file | wc -l)
