@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-for file in "$1";
+for file in "$1"/*.fastq;
 do
   inp="$file";
   file_name=${inp##*/};
