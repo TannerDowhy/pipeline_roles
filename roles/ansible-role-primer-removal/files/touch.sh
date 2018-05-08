@@ -5,7 +5,8 @@ for file in "$1"/*.fastq.gz;
 do
   inp="$file";
   file_name=${inp##*/};
-  touch $1/primer_removal/output/$file_name;
+  base=${file_name%fastq.gz};
+  touch $1/primer_removal/output/$base.cutadaptedfastq.gz;
 done
 
 exit 0;
