@@ -61,6 +61,7 @@
     - dada_chimera_taxonomy.R
     - silva_nr_v128_train_set.fa.gz
     - combine.sh
+    - sh_general_release_dynamic_01.12.2017.fasta.gz
 
 - name: Make sure the queue is empty
   command: "sh {{ data }}/dada/queue.sh {{ uname }}"
