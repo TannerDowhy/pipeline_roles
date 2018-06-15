@@ -7,7 +7,7 @@ st <- readRDS(args[1])
 seqtab <- removeBimeraDenovo(st, method="consensus", multithread=TRUE)
 # Assign taxonomy
 tax <- assignTaxonomy(seqtab, "sh_general_release_dynamic_01.12.2017.fasta.gz", multithread=TRUE)
-tax2 <- assignTaxonomy(seqtab, "../software/gg_13_8_otus/rep_set/99_otus.fasta", multithread=TRUE)
+tax2 <- assignTaxonomy(seqtab, "../software/gg_13_8_otus/rep_set/99_otus.fasta.gz", multithread=TRUE)
 # Write to disk
 write.csv(seqtab, args[2])
 write.csv(tax, args[3])

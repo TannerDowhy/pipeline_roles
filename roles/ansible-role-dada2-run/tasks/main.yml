@@ -48,6 +48,9 @@
     dest: "{{ data }}/software"
     remote_src: true
 
+- name: Compress greengenes
+  command: "gzip {{ data }}/software/gg_13_8_otus/repset/99_otus.fasta"
+
 - name: Copy scripts to target machine
   copy: src="{{ role_path }}/files/{{ item }}" dest="{{ data }}/dada"
   with_items:
