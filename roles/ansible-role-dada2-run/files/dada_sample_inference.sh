@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #SBATCH --time=12:00:00
-#SBATCH --job-name=classified
+#SBATCH --job-name=P2IRC
 #SBATCH --mem=64G
 #SBATCH --nodes=8
 #SBATCH --tasks-per-node=32

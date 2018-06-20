@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #SBATCH --time=2:00:00
-#SBATCH --job-name=classified
+#SBATCH --job-name=P2IRC
 #SBATCH --mem=2G
 
 inp="$1";
