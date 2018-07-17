@@ -6,8 +6,8 @@
 
 inp="$1";
 file=${inp##*/};
-# base=${file%*.extended*};
-base=${file%*.cutadapted*};
+base=${file%*.extended*};
+# base=${file%*.cutadapted*};
 path=$(dirname "${1}");
 
 module load bowtie2;
