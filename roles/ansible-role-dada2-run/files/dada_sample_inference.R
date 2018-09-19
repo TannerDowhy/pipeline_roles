@@ -15,7 +15,8 @@ names(filts) <- sample.names
 
 # Learn the errors
 set.seed(100)
-err_merged <- learnErrors(filts, nreads=1000000, MAX_CONSIST=100, multithread=TRUE, randomize=TRUE)
+#err_merged <- learnErrors(filts, nreads=1000000, MAX_CONSIST=100, multithread=TRUE, randomize=TRUE)
+err_merged <- learnErrors(filts, nreads=1000000, MAX_CONSIST=1, multithread=TRUE, randomize=TRUE)
 
 png(args[3])
 plotErrors(err_merged, nominalQ=TRUE)
