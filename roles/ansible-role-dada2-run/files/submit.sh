@@ -21,6 +21,8 @@ len=`python $1/dada/read_length.py -f $1/dada/hist.txt`;
 
 `sbatch --account=$2 --output=$1/dada/sample_inference.out $1/dada/dada_sample_inference.sh $1/bowtie2/output $len $1/dada/plot.png $1/dada/seq_tab.csv $1/dada/seq_tab.rds`;
 
+sleep 60;
+
 while true
 do
     command=`squeue -u $1 | wc -l`
