@@ -76,6 +76,7 @@
   command: "sh {{ data }}/software/bbmap/readlength.sh in={{ data }}/dada/combined.fastq out={{ data }}/dada/hist.txt bin=1"
 
 - name: Submit jobs to cluster
-  command: "sh {{ data }}/dada/submit.sh {{ data }} {{ qname }}"
+  # command: "sh {{ data }}/dada/submit.sh {{ data }} {{ qname }}"
+  command: "sbatch --account=rrg-linksm --output={{ data }}/dada/sample_inference.out {{ data }}/dada/dada_sample_inference.sh {{ data }}/bowtie2/output 407 {{ data }}/dada/plot.png {{ data }}/dada/seq_tab.csv {{ data }}/dada/seq_tab.rds"
   args:
     chdir: "{{ data }}/dada"
