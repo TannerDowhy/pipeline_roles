@@ -77,6 +77,6 @@
 
 - name: Submit jobs to cluster
   # command: "sh {{ data }}/dada/submit.sh {{ data }} {{ qname }}"
-  command: "sbatch --account=rrg-linksm --output={{ data }}/dada/sample_inference.out {{ data }}/dada/dada_sample_inference.sh {{ data }}/bowtie2/output 407 {{ data }}/dada/plot.png {{ data }}/dada/seq_tab.csv {{ data }}/dada/seq_tab.rds"
+  command: "sbatch --account=rrg-linksm --output={{ data }}/dada/chimera_taxonomy.out {{ data }}/dada/dada_chimera_taxonomy.sh {{ data }}/dada/seq_tab.rds {{ data }}/dada/seqtab_final.csv {{ data }}/dada/tax_final.csv {{ data }}/dada/seqtab_final.rds {{ data }}/dada/tax_final.rds"
   args:
     chdir: "{{ data }}/dada"
