@@ -77,6 +77,6 @@
 
 - name: Execute DADA2
   # command: "sh {{ data }}/dada/submit.sh {{ data }} {{ qname }}"
-  command: "/cvmfs/soft.computecanada.ca/easybuild/software/2017/avx2/Compiler/intel2016.4/r/3.4.3/bin/Rscript dada_sample_inference.R {{ data }}/dada/dada_chimera_taxonomy.sh {{ data }}/dada/seq_tab.rds {{ data }}/dada/seqtab_final.csv {{ data }}/dada/tax_final.csv {{ data }}/dada/seqtab_final.rds {{ data }}/dada/tax_final.rds"
+  command: "/cvmfs/soft.computecanada.ca/easybuild/software/2017/avx2/Compiler/intel2016.4/r/3.4.3/bin/Rscript dada_sample_inference.R {{ data }}/dada/seq_tab.rds {{ data }}/dada/seqtab_final.csv {{ data }}/dada/tax_final.csv {{ data }}/dada/seqtab_final.rds {{ data }}/dada/tax_final.rds"
   args:
     chdir: "{{ data }}/dada"
