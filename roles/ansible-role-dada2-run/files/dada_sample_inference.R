@@ -7,7 +7,7 @@ args <- commandArgs(TRUE)
 path <- args[1]
 filt_path <- file.path(path, "filtered")
 merged_files <- list.files(path, pattern=".fastq")
-filterAndTrim(file.path(path, merged_files), file.path(filt_path, merged_files), rm.phix=FALSE, truncLen=args[3],  multithread=TRUE)
+filterAndTrim(file.path(path, merged_files), file.path(filt_path, merged_files), rm.phix=FALSE, truncLen=args[3],  multithread=FALSE)
 
 filts <- list.files(filt_path, pattern=".fastq", full.names=TRUE)
 sample.names <- sapply(strsplit(basename(filts), ".extended"), `[`, 1)
@@ -16,7 +16,7 @@ names(filts) <- sample.names
 # Learn the errors
 set.seed(100)
 #err_merged <- learnErrors(filts, nreads=1000000, MAX_CONSIST=100, multithread=TRUE, randomize=TRUE)
-err_merged <- learnErrors(filts, nreads=1000000, MAX_CONSIST=1, multithread=TRUE, randomize=TRUE)
+err_merged <- learnErrors(filts, nreads=1000000, MAX_CONSIST=1, multithread=FALSE, randomize=TRUE)
 
 png(args[3])
 plotErrors(err_merged, nominalQ=TRUE)
